@@ -1,3 +1,12 @@
+"""
+Sample Input
+array = [7,6,4,-1,1,2]
+targetSum = 16
+
+Sample Output
+// the quadruplets could be ordered differently
+[7, 6, 4, -1], [7, 6, 1, 2]]"""
+
 def fourNumberSum(array, targetSum):
   array.sort()
   inputlen=len(array)
@@ -31,3 +40,4 @@ if __name__ == "__main__":
   output = fourNumberSum(array, targetSum)
   print(output)
   
+#TC is O(n^2)
