@@ -1,4 +1,5 @@
-
+#You're given an array of integers and an integer. Write a function that moves all instance of that integer in the array to the end of the array and returns the array.
+#Write a function that should perform this in place (i.e , it should mutate the input array) and doesn't need too maintain the order of the other integer.
 '''
 better solution because time complexity is O(n) whereas space complexity
 has improved to O(1) which means memory space needed for calculation 
