@@ -1,0 +1,14 @@
+m=int(input(""))
+alist=list(map(int,input("").strip().split()))[:m]
+n=int(input(""))
+blist=list(map(int,input("").strip().split()))[:n]
+output=[]
+for i in range(0,m):
+  if alist[i] not in blist:
+    output.append(alist[i])
+for i in range(0,n):
+  if blist[i] not in alist:
+    output.append(blist[i])
+output.sort()
+for i in output:
+  print(i)
