@@ -1,0 +1,17 @@
+def canVisitAllRooms(rooms):
+  result=True
+  keyset=set([])
+  for i in range(len(rooms)):
+    if i in keyset or i==0:
+      for key in rooms[i]:
+        keyset.add(key)
+    else:
+      result=False
+      break
+      
+  return result
+  
+if __name__ == "__main__":
+  rooms = [[1],[2],[3],[]]
+  print(canVisitAllRooms(rooms))
+  
