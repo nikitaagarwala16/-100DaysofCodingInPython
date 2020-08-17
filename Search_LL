@@ -1,0 +1,41 @@
+class Node:
+    # Singly linked node
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+class singly_linked_list:
+    def __init__(self):
+        # Createe an empty list
+        self.tail = None
+        self.head = None
+        self.count = 0
+    def append_item(self, data):
+        newnode=Node(data)
+        if self.head is None:
+          self.head=newnode
+          return
+        pred=self.head
+        while pred.next is not None:
+          pred=pred.next
+        pred.next=newnode;
+        
+        
+    def search_item(self, val):
+       if self.head is None:
+         return False
+       visitingnode=self.head
+       while visitingnode is not None:
+         if visitingnode.data==val:
+           return True
+         visitingnode=visitingnode.next
+       return False
+
+if __name__ == "__main__":
+  items = singly_linked_list()
+  items.append_item('PHP')
+  items.append_item('Python')
+  items.append_item('C#')
+  items.append_item('C++')
+  items.append_item('Java')
+  
+  print(items.search_item('SQL'))
