@@ -1,0 +1,10 @@
+def caesarCipherEncryptor(string, key):
+    inputlen=len(string)
+    output=""
+    for ch in string:
+     output += chr((ord(ch) +key - 97) % 26 + 97) #97 is ascii of a
+    return output
+if __name__=="__main__":
+  string = "xyz"
+  key = 2
+  print(caesarCipherEncryptor(string, key))
