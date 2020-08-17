@@ -1,0 +1,37 @@
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+        
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+      sumoflist1=0
+      sumoflist2=0
+      while l1 is not None:
+        sumoflist1*=10
+        sumoflist1+=l1.val
+        l1=l1.next
+      while l2 is not None:
+        sumoflist2=sumoflist2*10
+        sumoflist2+=l2.val
+        l2=l2.next
+      result=ListNode()
+      total=str(sumoflist1+sumoflist2)
+      for i in range(len(total)):
+        result.val=int(total[i])
+        if i<len(total)-1:
+            result.next=ListNode()
+            result=result.next
+        else:
+            result.next=None
+
+      return result
+    
+
+
+    
+    
+    
+    
+    
