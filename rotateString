@@ -1,0 +1,4 @@
+s=input("")
+input_len=len(s)
+output=s[2:input_len]+s[0:2]
+print(output)
