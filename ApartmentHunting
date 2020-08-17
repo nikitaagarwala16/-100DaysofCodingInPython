@@ -1,0 +1,33 @@
+def apartmentHunting(blocks, reqs):
+    distances = [[9999 for _ in range(len(blocks))] for _ in reqs]
+    output = [-9999 for _ in range(len(blocks))]
+    for count, req in enumerate(reqs):
+        nearestcount = -1
+        for blockcount, block in enumerate(blocks):
+            if block[req]:
+                nearestcount = blockcount
+            if nearestcount != -1:
+                distances[count][blockcount] = min(distances[count][blockcount], blockcount - nearestcount)   
+        
+        nearestcount = -1
+        for blockcount in range(len(blocks) - 1, -1, -1):
+            block = blocks[blockcount]
+            if block[req]:
+                nearestcount = blockcount
+            if nearestcount !=-1:
+                distances[count][blockcount] = min(distances[count][blockcount], nearestcount - blockcount) 
+        
+        for blockcount in range(len(blocks)):
+            output[blockcount] = max(output[blockcount], distances[count][blockcount])
+    return output.index(min(output))
+
+if __name__ == "__main__":
+  blocks = [
+   {"gym": False, "school": True, "store": False},
+   {"gym": True, "school": False, "store": False},
+   {"gym": True, "school": True, "store": False},
+   {"gym": False, "school": True, "store": False},
+   {"gym": False, "school": True, "store": True}
+  ]
+  reqs = ["gym", "school", "store"]
+  print(apartmentHunting(blocks,reqs)) 
