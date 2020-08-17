@@ -1,0 +1,39 @@
+#time complexity is O(nm) because anyway we have to traverse whole matrix but space complexity is constant 
+def return_diag(input_matrix):
+  m=len(input_matrix)
+  n=len(input_matrix[0])
+  row=0
+  column=0
+  count=0
+  res=[]
+  for i in range(m*n):
+    res.append(input_matrix[row][column])
+    if (row + column) % 2 == 0:     #upward for example from 00 to 01
+      if column == (n - 1):  
+          row += 1
+      elif row == 0:
+          column += 1
+      else:
+          row -= 1
+          column += 1
+    else:               #downwards direction from 01 to 10
+      if row == (m-1):
+          column += 1
+      elif column == 0:
+          row += 1
+      else:
+          row += 1
+          column -= 1
+        
+  return res
+if __name__ == "__main__":
+  input_matrix = [
+ [ 1, 2, 3 ],
+ [ 4, 5, 6 ],
+ [ 7, 8, 9 ]
+  ]
+  print(return_diag(input_matrix))
+
+
+
+
