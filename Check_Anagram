@@ -1,0 +1,21 @@
+#basic preprocessing includes removing spaces ,to lowercases and sorting
+def check_anagram(sentence_1,sentence_2):
+  sentence_2=sorted((sentence_2.lower()).replace(" ", ""))
+  sentence_1=sorted((sentence_1.lower()).replace(" ", ""))
+  if len(sentence_2)!=len(sentence_1):
+    res=False
+  else:
+    res=True
+    for i in range(len(sentence_1)):
+      if sentence_1[i]!=sentence_2[i]:
+        res=False
+        break
+  return res
+if __name__ == "__main__":
+  sentence_1 = ""
+  sentence_2 = ""
+  print(check_anagram(sentence_1,sentence_2))
+
+
+
+
