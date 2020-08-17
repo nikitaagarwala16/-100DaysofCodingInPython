@@ -1,0 +1,33 @@
+def check_island(input_matrix,i,j):
+  if i < 0 or  i >= len(input_matrix) or j < 0 or j >= len(input_matrix[i]) or input_matrix[i][j] == '0':
+    return 0
+    
+  input_matrix[i][j] = '0';
+  check_island(input_matrix, i + 1, j);
+  check_island(input_matrix, i - 1, j);
+  check_island(input_matrix, i, j + 1);
+  check_island(input_matrix, i, j - 1);
+
+  return 1;
+  
+def count_island(input_matrix):
+  if input_matrix is None or len(input_matrix) == 0:
+    return 0
+  res=0
+  for i in range(len(input_matrix)):
+    for j in range(len(input_matrix[i])):
+      if input_matrix[i][j] == '1':
+        res+=check_island(input_matrix,i,j)
+  return res
+if __name__ == "__main__":
+  input_matrix = [
+  ["1","1","1","1","0"],
+  ["1","1","0","1","0"],
+  ["1","1","0","0","0"],
+  ["0","0","0","0","0"]
+  ]
+  print(count_island(input_matrix))
+
+
+
+
