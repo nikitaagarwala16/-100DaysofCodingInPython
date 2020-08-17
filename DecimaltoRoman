@@ -1,0 +1,20 @@
+def num_conversion(input_number):
+  res=""
+  value = [1, 4, 5, 9, 10, 40, 50, 90,  100, 400, 500, 900, 1000] 
+  symbol = ["I", "IV", "V", "IX", "X", "XL","L", "XC", "C", "CD", "D", "CM", "M"] 
+  i = 12
+  while input_number>0: 
+    count = input_number // value[i] 
+    while count: 
+      res+=symbol[i]
+      count -= 1
+    input_number %= value[i] 
+    i -= 1
+  return res
+if __name__ == "__main__":
+  input_number = 3
+  print(num_conversion(input_number))
+
+
+
+
