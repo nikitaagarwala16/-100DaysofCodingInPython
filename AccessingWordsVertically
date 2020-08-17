@@ -1,0 +1,26 @@
+
+def return_vertically(input_string):
+  inputlist=input_string.split()
+  maxcol=-1
+  for word in inputlist:
+    if len(word)>maxcol:
+      maxcol=len(word)
+  result=[]
+  count=0
+  while count < maxcol:
+    newword=""
+    for word in inputlist:
+      try:
+        newword+=word[count]
+      except IndexError as e:  #handling exception
+        newword+=" "
+    result.append(newword.rstrip())
+    count+=1
+  return result
+if __name__ == "__main__":
+  input_string = "HOW ARE YOU"
+  print(return_vertically(input_string))
+
+
+
+
