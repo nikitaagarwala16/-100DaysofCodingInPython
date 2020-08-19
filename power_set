@@ -1,0 +1,25 @@
+#generatePS is recursive function
+def generatePS(input_string,size,output,index=-1,current_string=""): 
+  if index == size: 
+    return
+  if len(current_string)>0: #if current string is not null null then append to my output
+    output.append(current_string)
+  for i in range(index + 1, size): 
+    current_string += input_string[i] 
+    generatePS(input_string,size,output,i,current_string) 
+    current_string = current_string[:len(current_string) - 1] 
+    
+  return output
+def power_set(input_string): #preprocessing
+  sortedinput="".join(sorted(input_string))
+  res=[]
+  res=generatePS(sortedinput,len(sortedinput),res)
+  res=sorted(list(set(res)))
+  return res
+if __name__ == "__main__":
+  input_string = "banana"
+  print(power_set(input_string))
+
+
+
+
