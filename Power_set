@@ -17,7 +17,7 @@ def power_set(input_string): #preprocessing
   res=sorted(list(set(res)))
   return res
 if __name__ == "__main__":
-  input_string = "banana"
+  input_string = "abc"
   print(power_set(input_string))
 
 
