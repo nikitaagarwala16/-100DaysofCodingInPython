@@ -1,0 +1,42 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the checkMagazine function below.
+def checkMagazine(magazine, note):
+  m=len(magazine)
+  n=len(note)
+  magazine.sort()
+  note.sort()
+  first=0
+  second=0
+  while second !=n and first!=m:
+    if magazine[first]==note[second]:
+      first+=1
+      second+=1
+    elif magazine[first]<note[second]:
+      first+=1
+    else:
+      break
+  if second==n:
+    print("Yes")
+  else:
+    print("No")
+  return 
+
+if __name__ == '__main__':
+    mn = input().split()
+
+    m = int(mn[0])
+
+    n = int(mn[1])
+
+    magazine = input().rstrip().split()
+
+    note = input().rstrip().split()
+
+    checkMagazine(magazine, note)
