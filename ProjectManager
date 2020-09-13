@@ -1,0 +1,16 @@
+m=int(input()) #no of employees
+n=int(input()) #no of days
+inputlist=list(map(str,input().strip().split())) #taking input 
+output=0
+ans="Y"*m
+mapping=[]
+for index,i in enumerate(inputlist):
+  if i==ans:
+    mapping.append("1")
+  else:
+    mapping.append("0")
+mapping="".join(mapping)
+l=mapping.split("0")
+for i in l:
+  output=max(output,len(i))
+print(output)
